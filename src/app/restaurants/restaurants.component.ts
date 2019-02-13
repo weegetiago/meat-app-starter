@@ -7,7 +7,7 @@ import { RestaurantsService } from './restaurants.service';
   templateUrl: './restaurants.component.html',
 })
 export class RestaurantsComponent implements OnInit {
-
+  
   restaurants: Restaurant[]
 
   constructor(private restaurantsService: RestaurantsService) { }
@@ -16,5 +16,5 @@ export class RestaurantsComponent implements OnInit {
     this.restaurantsService.restaurants()
       .subscribe(restaurants => this.restaurants = restaurants)
   }
-
+  
 }
