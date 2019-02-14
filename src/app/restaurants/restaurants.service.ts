@@ -8,16 +8,17 @@ import 'rxjs/add/operator/catch'
 import { Restaurant } from "./restaurant/restaurant.model"
 
 import { MEAT_API } from '../app.api'
-import {ErrorHandler} from '../app.error-handler'
+import { ErrorHandler } from '../app.error-handler'
 
 @Injectable()
 export class RestaurantsService {
 
     constructor(private http: Http) { }
 
-    restaurants(): Observable<Restaurant[]> { //metodo
+    getListRestaurants(): Observable<Restaurant[]> { //metodo
         return this.http.get(`${MEAT_API}/restaurants`)
             .map(response => response.json()) // ver com Bridi
             .catch(ErrorHandler.handleError) //cuida das msgs de erro
+        
     }
 }
