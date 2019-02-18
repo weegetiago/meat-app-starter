@@ -19,6 +19,12 @@ export class RestaurantsService {
         return this.http.get(`${MEAT_API}/restaurants`)
             .map(response => response.json()) // ver com Bridi
             .catch(ErrorHandler.handleError) //cuida das msgs de erro
-        
+
+    }
+
+    restaurantById(id: string): Observable<Restaurant> { //metodo
+        return this.http.get(`${MEAT_API}/restaurants/${id}`)
+            .map(response => response.json())
+            .catch(ErrorHandler.handleError) //cuida das msgs de erro
     }
 }
