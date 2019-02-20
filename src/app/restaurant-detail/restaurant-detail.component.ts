@@ -10,7 +10,7 @@ import { Restaurant } from 'app/restaurants/restaurant/restaurant.model'
 })
 export class RestaurantDetailComponent implements OnInit {
 
-  restaurant: Restaurant
+  restaurant: Restaurant //atributo
 
   constructor(private restaurantsService: RestaurantsService,
     private route: ActivatedRoute) { }
