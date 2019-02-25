@@ -164,3 +164,4 @@ Todas as imagens usadas na aplicação são pertencentes a freepik.com
 -.map
 -Observable
 -this
+-parent? (linha 22 do menu.component.ts)
