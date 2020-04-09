@@ -24,6 +24,7 @@ import { InputComponent } from './shared/input/input.component';
 import { PayComponent } from './shared/pay/pay.component';
 import { OrderItemsComponent } from './order/order-items/order-items.component';
 import { OrderService } from './order/order.service';
+import {DeliveryComponent} from './order/delivery/delivery.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { OrderService } from './order/order.service';
     InputComponent,
     PayComponent,
     OrderItemsComponent,
+    DeliveryComponent,
   ],
   imports: [
     BrowserModule,

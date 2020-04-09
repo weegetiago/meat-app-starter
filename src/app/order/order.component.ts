@@ -9,10 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderComponent implements OnInit {
 
+  delivery: number = 8
+
   paymentOptions: PayOption[] = [
-    {label: 'Dinheiro', value: 'MON'},
-    {label: 'Cartão', value: 'CRD'},
-    {label: 'Cartão Refeição', value: 'REF'},
+    { label: 'Dinheiro', value: 'MON' },
+    { label: 'Cartão', value: 'CRD' },
+    { label: 'Cartão Refeição', value: 'REF' },
   ]
 
   constructor(private orderService: OrderService) { }
@@ -20,19 +22,23 @@ export class OrderComponent implements OnInit {
   ngOnInit() {
   }
 
-  cartItems(){
+  itemsValue(): number {
+    return this.orderService.itemsValue()
+  }
+
+  cartItems() {
     return this.orderService.cartItems()
   }
 
-  maisQtde(item: CartItem){
+  maisQtde(item: CartItem) {
     this.orderService.maisQtde(item)
   }
 
-  menosQtde(item: CartItem){
+  menosQtde(item: CartItem) {
     this.orderService.menosQtde(item)
   }
 
-  remove(item: CartItem){
+  remove(item: CartItem) {
     this.orderService.remove(item)
   }
 
