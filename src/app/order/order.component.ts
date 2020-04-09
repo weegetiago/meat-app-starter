@@ -1,3 +1,6 @@
+import { CartItem } from './../restaurant-detail/shopping-cart/cart-item.model';
+import { OrderService } from './order.service';
+import { PayOption } from './../shared/pay/pay-option.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,9 +9,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderComponent implements OnInit {
 
-  constructor() { }
+  paymentOptions: PayOption[] = [
+    {label: 'Dinheiro', value: 'MON'},
+    {label: 'Cartão', value: 'CRD'},
+    {label: 'Cartão Refeição', value: 'REF'},
+  ]
+
+  constructor(private orderService: OrderService) { }
 
   ngOnInit() {
+  }
+
+  cartItems(){
+    return this.orderService.cartItems()
+  }
+
+  maisQtde(item: CartItem){
+    this.orderService.maisQtde(item)
+  }
+
+  menosQtde(item: CartItem){
+    this.orderService.menosQtde(item)
+  }
+
+  remove(item: CartItem){
+    this.orderService.remove(item)
   }
 
 }

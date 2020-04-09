@@ -39,7 +39,8 @@ Expressões regulares usadas na validação de formulários
 
 ### Number Regex
 
-`/^[0-9]*$/`
+`/^[0-9]*$/` 
+^[0-9]*$
 
 ## Upgrade para Angular 4.3
 
@@ -152,14 +153,6 @@ Dependências dos pacotes que devem ficar em package.json:
 Todas as imagens usadas na aplicação são pertencentes a freepik.com
 
 ## Ler sobre
--DOM
--EcmanScript
--ram time
--bootstrap
--Jquery
--href
-
-## Duvidas:
 -.subscribe
 -ngOnInit
 -@Injectable
@@ -167,3 +160,7 @@ Todas as imagens usadas na aplicação são pertencentes a freepik.com
 -Observable
 -this
 -parent? (linha 22 do menu.component.ts)
+
+## Lembretes:
+-{{form.value | json}} para verificar os valores passado em um form
+-{{form.valid}}
