@@ -1,7 +1,10 @@
+import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+
 import { CartItem } from './../restaurant-detail/shopping-cart/cart-item.model';
 import { OrderService } from './order.service';
 import { PayOption } from './../shared/pay/pay-option.model';
-import { Component, OnInit } from '@angular/core';
+import {Order, OrderItem} from './order.model';
 
 @Component({
   selector: 'mt-order',
@@ -17,7 +20,9 @@ export class OrderComponent implements OnInit {
     { label: 'Cartão Refeição', value: 'REF' },
   ]
 
-  constructor(private orderService: OrderService) { }
+  constructor(
+    private orderService: OrderService,
+    private router: Router){}
 
   ngOnInit() {
   }
@@ -36,6 +41,19 @@ export class OrderComponent implements OnInit {
 
   menosQtde(item: CartItem) {
     this.orderService.menosQtde(item)
+  }
+
+  checkOrder(order: Order){
+    order.orderItems = this.cartItems()
+    .map((item:CartItem)=>new OrderItem(item.quantity, item.menuItem.id))
+    this.orderService.checkOrder(order)
+    .subscribe((orderId: string) => {
+      this.router.navigate(['order-summary'])
+      console.log(`Compra conluída: ${orderId}`)
+      this.orderService.clear()
+    })
+
+    console.log(order)
   }
 
   remove(item: CartItem) {
